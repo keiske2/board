@@ -17,12 +17,15 @@ from cgitb import handler
 from django.contrib import admin
 from django.urls import path, include
 from pybo.views import base_views
+#----------------------------------- 신규 업로드 파일 
+from .settings import base
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pybo/', include('pybo.urls')),
     path('common/', include('common.urls')),
     path('', base_views.index, name='index'),
-]
+]+ static(base.MEDIA_URL, document_root=base.MEDIA_ROOT) #----------------------------------- 신규 업로드 파일 
 
 handler404 = 'common.views.page_not_found'

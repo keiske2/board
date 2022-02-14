@@ -28,4 +28,12 @@ class CommentForm(forms.ModelForm):
         labels = {
             'content': '댓글내용',
         }
-    
+
+#----------------------------------- 신규 업로드 파일 
+from django.forms import ModelForm
+from .models import FileUpload
+
+class FileUploadForm(ModelForm):
+    class Meta:
+        model = FileUpload
+        fields = ['title', 'imgfile', 'content']

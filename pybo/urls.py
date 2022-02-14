@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import base_views, question_views, answer_views, comment_views, vote_views
+from .views import base_views, question_views, answer_views, comment_views, vote_views, fileUpload_views
 
 app_name = 'pybo'
 
@@ -11,6 +11,9 @@ urlpatterns = [
     # question_views.py
     
     path('question/create/', question_views.question_create, name="question_create"),
+    #----------------------------------- 신규 업로드 파일 
+    path('question/create/', fileUpload_views.fileUpload , name="fileUpload"),
+    #---------------------------------------------------
     path('question/modify/<int:question_id>/', question_views.question_modify, name='question_modify'),
     path('question/delete/<int:question_id>/', question_views.question_delete, name='question_delete'),
 
